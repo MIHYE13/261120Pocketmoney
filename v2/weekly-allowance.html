@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="ko">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>15,000원의 일주일 · 용돈 게임 2</title>
+<style>
+:root{font:16px/1.55 system-ui,"Malgun Gothic",sans-serif;color:#14232f;background:#eef3f5;--navy:#142b3d;--green:#146b55;--mint:#cbf0df;--line:#d4e0e3}*{box-sizing:border-box}body{margin:0}main{max-width:1080px;margin:auto;padding:22px clamp(14px,4vw,40px) 44px}header{background:var(--navy);color:white;padding:clamp(20px,5vw,44px);border-radius:20px;display:grid;grid-template-columns:1fr auto;gap:20px;align-items:end}h1,h2,h3,p{margin:0}h1{font-size:clamp(1.9rem,5.5vw,3.7rem);line-height:1.15}h2{font-size:1.25rem}header p{margin-top:10px;color:#d6e7ec}header a{background:var(--mint);color:#163b30;padding:10px 14px;border-radius:9px;font-weight:700;text-align:center}aside{margin:13px 0;padding:10px 15px;background:#fff2d1;border-radius:8px}section{background:white;border:1px solid var(--line);border-radius:14px;padding:16px;margin:12px 0}.bar{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:12px 0}.stats div{padding:10px;border:1px solid var(--line);border-radius:9px;background:#f6faf9}.stats strong{display:block;font-size:clamp(1rem,3vw,1.5rem);font-variant-numeric:tabular-nums}.muted{color:#465b67}label{display:grid;gap:4px}button,input,select{font:inherit;color:inherit;border:1px solid #a8bdc4;border-radius:8px;background:white;padding:7px 10px}button{cursor:pointer}button[aria-current=true],.primary{background:var(--green);color:white;border-color:var(--green);font-weight:700}button:disabled{opacity:.55;cursor:default}:focus-visible{outline:3px solid #ba6b00;outline-offset:2px}.days,.choices{display:grid;gap:8px;margin-top:12px}.days{grid-template-columns:repeat(7,1fr)}.choices{grid-template-columns:repeat(3,1fr)}.choice{border:1px solid var(--line);border-radius:9px;padding:10px;background:#f6faf9}.choice input[type=number]{width:100%}.source{margin-top:10px;width:100%}.votes{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:12px 0}.status{background:#e5f6ed;padding:9px 12px;border-radius:8px;margin:10px 0;min-height:45px}.alert{background:#fff0d3}.lists{overflow:auto}table{width:100%;border-collapse:collapse;min-width:510px}th,td{border-bottom:1px solid var(--line);padding:8px;text-align:left}th{color:#254653}summary{cursor:pointer;font-weight:700}details p{margin-top:8px}@media(max-width:680px){header{grid-template-columns:1fr;align-items:start}.days{grid-template-columns:repeat(4,1fr)}.choices,.votes{grid-template-columns:repeat(2,1fr)}}@media(max-width:380px){.choices{grid-template-columns:1fr}}
+</style>
+<main>
+<header><div><h1>15,000원의 일주일</h1><p>5학년 실과 · 4인 모둠 용돈 게임</p></div><a href="data:application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;base64,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" download="용돈게임2_용돈기입장.xlsx">Excel 용돈기입장 받기</a></header>
+<aside><strong>연습 화면입니다.</strong> 새로고침하면 입력이 초기화됩니다. 최종 계획과 실제 기록은 Excel에 저장하세요.</aside>
+<section aria-labelledby="weekTitle"><div class="bar"><div><h2 id="weekTitle">우리 모둠의 일주일</h2><p id="week" class="muted"></p></div><label>시작일<input id="start" type="date" value="2026-11-20" min="1900-01-01" max="9999-12-25" required></label></div>
+<div class="stats"><div>기본 용돈<strong>15,000원</strong></div><div>계획 지출<strong id="spent">0원</strong></div><div>예상 잔액<strong id="balance">15,000원</strong></div></div>
+<nav id="days" class="days" aria-label="일주일 날짜 선택"></nav></section>
+<section aria-labelledby="dayTitle"><div class="bar"><h2 id="dayTitle"></h2><label>생활 상황<select id="scenario"></select></label></div>
+<p id="prompt" class="muted"></p><div id="choices" class="choices"></div>
+<label class="source">유료 선택의 가격 근거<input id="source" maxlength="80" placeholder="예: 이용할 버스의 어린이 요금 안내"></label>
+<div id="votes" class="votes"></div><p id="status" class="status" role="status"></p>
+<button id="commit" class="primary" disabled>모둠 계획에 반영</button></section>
+<section><h2>일주일 계획표</h2><p class="muted">날짜별 합의 결과를 Excel의 ‘계획’ 탭에 옮기세요. 실제 사용 내역은 ‘용돈기입장’ 탭에 적으세요.</p><div class="lists"><table><thead><tr><th>날짜</th><th>합의한 선택</th><th>계획 금액</th><th>가격 근거</th><th>기록</th></tr></thead><tbody id="ledger"></tbody></table></div></section>
+<section><details><summary>Excel과 Canva 사용 방법</summary><p>모둠 대표가 Excel을 내려받아 모둠명으로 저장하세요. 일주일 동안 영수증이나 실제 결제 내역을 확인해 수입과 지출을 기록하고, 끝나면 계획과 비교해 보세요.</p><p>Canva Sheets가 필요한 모둠은 Excel 파일을 Canva에 가져와 사본으로 활용하세요. 제출용 기록은 Excel 파일에 저장하세요.</p></details></section>
+</main>
+<script>
+'use strict';
+const budget=15000;
+const scenarios=[
+  ['이동','갈 곳까지 어떤 방법으로 이동할까요? 시간과 거리를 비교해 보세요.',['걸어가기','버스 타기','이동 계획 미루기']],
+  ['간식','먹고 싶은 간식에 얼마를 쓸지 의논해 보세요.',['집에서 준비하기','간식 사기','다음에 먹기']],
+  ['학교 준비물','가지고 있는 물건으로 준비할 수 있는지 살펴보세요.',['있는 물건 쓰기','준비물 사기','학교에서 빌리기']],
+  ['쉬는 날','친구나 가족과 시간을 보내는 방법을 골라 보세요.',['무료 활동 하기','유료 활동 하기','집에서 쉬기']],
+  ['선물','마음을 표현하는 방법과 비용을 비교해 보세요.',['직접 만들기','선물 사기','편지 쓰기']],
+  ['문구·취미','꼭 필요한 것인지, 다음 주로 미뤄도 되는지 이야기해 보세요.',['있는 물건 쓰기','필요한 물건 사기','다음 주로 미루기']],
+  ['저축 계획','남은 돈을 어떻게 관리할지 정해 보세요.',['그대로 남기기','저축할 금액 정하기','다음 주로 넘기기']]
+];
+const letters=['A','B','C'];
+const drafts=scenarios.map((_,i)=>({scenario:i,prices:['','',''],source:'',votes:['','','','']}));
+const plans=Array(7).fill(null);
+const el=id=>document.getElementById(id);
+const won=n=>new Intl.NumberFormat('ko-KR').format(n)+'원';
+const dates=new Intl.DateTimeFormat('ko-KR',{month:'numeric',day:'numeric',weekday:'short',timeZone:'UTC'});
+let day=0;
+function dateAt(index){
+  const d=new Date(el('start').value+'T00:00:00Z');
+  d.setUTCDate(d.getUTCDate()+index);
+  return Number.isNaN(d.getTime())?'날짜 미정':dates.format(d);
+}
+function totals(){return plans.reduce((sum,p)=>sum+(p?.amount??0),0);}
+function agreement(draft, dayIndex){
+  const vote=draft.votes[0];
+  if(draft.votes.some(v=>!v))return {message:'모둠원 4명이 모두 선택해 주세요.'};
+  if(!letters.includes(vote)||draft.votes.some(v=>v!==vote))return {message:'의견이 달라요. 함께 이야기한 뒤 다시 선택하세요.',warning:true};
+  const index=letters.indexOf(vote);
+  const raw=draft.prices[index];
+  const amount=Number(raw);
+  if(raw===''||!Number.isSafeInteger(amount)||amount<0)return {message:'선택한 항목의 실제 금액을 원 단위로 입력하세요. 무료라면 0원을 입력하세요.',warning:true};
+  const source=draft.source.trim();
+  if(amount>0&&!source)return {message:'가격표나 요금 안내처럼 확인한 가격 근거를 적어 주세요.',warning:true};
+  if(totals()-(plans[dayIndex]?.amount??0)+amount>budget)return {message:'15,000원을 넘어요. 가격이 낮은 선택을 찾아보세요.',warning:true};
+  return {message:'4명 모두 '+vote+'에 합의했어요. 모둠 계획에 반영할 수 있어요.',plan:{choice:vote+' · '+scenarios[draft.scenario][2][index],amount,source}};
+}
+function make(tag,text){const node=document.createElement(tag);if(text!==undefined)node.textContent=text;return node;}
+function status(){
+  const result=agreement(drafts[day],day);
+  el('status').textContent=result.message;
+  el('status').classList.toggle('alert',Boolean(result.warning));
+  el('commit').disabled=!result.plan||!el('start').validity.valid;
+  return result;
+}
+function renderOverview(){
+  el('week').textContent=dateAt(0)+' ~ '+dateAt(6);
+  el('spent').textContent=won(totals());
+  el('balance').textContent=won(budget-totals());
+  el('days').replaceChildren(...drafts.map((_,i)=>{
+    const item=make('button',dateAt(i)+(plans[i]?' ✓':''));
+    item.type='button';item.setAttribute('aria-current',String(i===day));
+    item.onclick=()=>{day=i;render();};return item;
+  }));
+  el('ledger').replaceChildren(...plans.map((plan,i)=>{
+    const row=make('tr');
+    [dateAt(i),plan?.choice??'미확정',plan?won(plan.amount):'—',plan?.source||'—'].forEach(value=>row.append(make('td',value)));
+    const cell=make('td');
+    if(plan){const clear=make('button','삭제');clear.onclick=()=>{plans[i]=null;render();};cell.append(clear);}
+    row.append(cell);return row;
+  }));
+}
+function render(){
+  renderOverview();
+  const draft=drafts[day];
+  const scenario=scenarios[draft.scenario];
+  el('dayTitle').textContent=dateAt(day)+' 계획';
+  el('scenario').value=String(draft.scenario);
+  el('prompt').textContent=scenario[1]+(draft.scenario===6?' 저축 계획 금액은 쓸 수 있는 돈에서 따로 떼어 계산해요.':'');
+  el('source').value=draft.source;
+  el('choices').replaceChildren(...scenario[2].map((name,i)=>{
+    const label=make('label',letters[i]+' · '+name+' (원)');
+    label.className='choice';
+    const input=make('input');input.type='number';input.min='0';input.step='1';input.placeholder='실제 금액';input.value=draft.prices[i];
+    input.oninput=()=>{draft.prices[i]=input.value;status();};
+    label.append(input);return label;
+  }));
+  el('votes').replaceChildren(...draft.votes.map((vote,i)=>{
+    const label=make('label','모둠원 '+(i+1));
+    const select=make('select');
+    ['',...letters].forEach(value=>{const option=make('option',value||'선택하세요');option.value=value;select.append(option);});
+    select.value=vote;select.onchange=()=>{draft.votes[i]=select.value;status();};label.append(select);return label;
+  }));
+  status();
+}
+scenarios.forEach(([name],i)=>{const option=make('option',name);option.value=i;el('scenario').append(option);});
+el('start').onchange=render;
+el('scenario').onchange=()=>{
+  drafts[day]={scenario:Number(el('scenario').value),prices:['','',''],source:'',votes:['','','','']};
+  render();
+};
+el('source').oninput=()=>{drafts[day].source=el('source').value;status();};
+el('commit').onclick=()=>{
+  const {plan}=status();
+  if(!plan||el('commit').disabled)return;
+  plans[day]=plan;
+  renderOverview();
+  el('status').textContent='모둠 계획에 반영했어요.';
+};
+render();
+</script>
+</html>
